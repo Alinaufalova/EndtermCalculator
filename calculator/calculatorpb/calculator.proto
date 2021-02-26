@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package="github.com\\Alinaufalova\\grpc-go-course\\greet\\greetpb;greetpb";
+
+
+
+message Calculating {
+  int32 number = 1;
+}
+
+message CalculatingRequest {
+  Calculating calculating = 1;
+}
+
+message CalculatingResponse {
+  string result = 1;
+}
+
+service CalculateService{
+  rpc PrimeNumberDecomposition(CalculatingRequest) returns (stream CalculatingResponse);
+}
+
